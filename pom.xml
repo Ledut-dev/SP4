@@ -24,6 +24,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- processing dependency-->
+
+        <dependency>
+            <groupId>org.processing</groupId>
+            <artifactId>core</artifactId>
+            <version>4.5.2</version>
+        </dependency>
 
     </dependencies>
 </project>
