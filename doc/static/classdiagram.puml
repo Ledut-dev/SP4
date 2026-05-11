@@ -50,34 +50,29 @@ class Team{
 }
 
 abstract class Role{
-- Enum roleType
 - String name
-+ public void useRoleCard()
++ public {abstract} void useRoleCard()
 }
 
 class Mayor extends Role{
-- Enum roleType
 - String name
 - int publicApproval
 + public void useRoleCard()
 }
 
 class InvestigativeJournalist extends Role{
-- Enum roleType
 - String name
 - int publicReach
 + public void useRoleCard()
 }
 
 class Physician extends Role{
-- Enum roleType
 - String name
 - int patientTrust
 + public void useRoleCard()
 }
 
 class Researcher extends Role{
-- Enum roleType
 - String name
 - int funding
 + public void useRoleCard()
@@ -87,17 +82,23 @@ class Disease{
 - Enum diseaseType
 - int mutationRate
 - int stability
-- Enum transmissionRoute
+- ArrayList<transmissionRoute> transmissionRoutes
 - int transmissionRate
-- Enum symptom
+- ArrayList<Symptom> symptoms
 - int incubationTime
 - int infectionTime
 - int prevalence
-- Enum susceptibleGroups
+- ArrayList<susceptibleGroup> susceptibleGroups
 - int fatalityRate
-- Enum treatmentOptions
+- ArrayList<treatmentOption> treatmentOptions
 }
 
+enum diseaseType
+enum symptom
+enum transmissionRoute
+enum susceptibleGroup
+enum treatmentOption
+enum difficulty
 
 Overview --* Menu
 MainMenu --* Menu
@@ -114,6 +115,12 @@ Scenario *-- Card
 Team *-- Player
 Player *-- Role
 
+Game *-- difficulty
+Disease *-- diseaseType
+Disease *-- symptom
+Disease *-- transmissionRoute
+Disease *-- treatmentOption
+Disease *-- susceptibleGroup
 
 
 @enduml
