@@ -1,0 +1,56 @@
+@startuml
+
+start
+
+:Random scenario drawn from pool;
+note right
+  Social (8)
+  Political (8)
+  Medical (8)
+end note
+
+fork
+  :Doctor\nreacts;
+fork again
+  :Researcher\nreacts;
+fork again
+  :Mayor\nreacts;
+fork again
+  :Journalist\nreacts;
+end fork
+note right
+  Each player chooses:
+  action card OR role ability
+end note
+
+:Outcome calculated;
+
+:Disease spreads;
+
+
+if (100% infected?) then (yes)
+  #F7C1C1:Game Over;
+  stop
+endif
+
+:Team decides — guess or continue?;
+
+if (Guess?) then (yes)
+  :Team guesses disease name;
+  if (Correct?) then (yes)
+    #C0DD97:Eradication Phase;
+    stop
+  else (no)
+    :Lose 1 guess;
+    if (0 guesses left?) then (yes)
+      #F7C1C1:Game Over;
+      stop
+    else (no)
+      :Continue to next round;
+    endif
+  endif
+else (continue)
+  :Next round;
+endif
+
+@enduml
