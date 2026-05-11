@@ -1,0 +1,26 @@
+@startuml
+!pragma layout smetana
+'https://plantuml.com/sequence-diagram
+
+object Game
+object Team
+object Player
+object Role
+object Disease
+object Menu
+object Overview
+object GUI
+object Carddeck
+object Cards
+
+Game *-- Team
+Team *-- Player
+Player *-- Role
+Game *-- Disease
+Menu --- Game
+Menu *-- Overview
+Menu --- GUI
+Game *-- Carddeck
+Carddeck *-- Cards
+
+@enduml
