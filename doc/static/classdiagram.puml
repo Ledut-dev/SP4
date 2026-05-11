@@ -1,0 +1,126 @@
+@startuml
+
+!pragma layout smetana
+
+class Overview{}
+
+class MainMenu{}
+
+class StartMenu{}
+
+class CardMenu{}
+
+class Menu{}
+
+class Scenario{
+- int scenarioID
+- ArrayList<Card> scenarioCards
+- ArrayList<Card> pickedCards
+
++ Public Card findCardOptions()
+
+}
+
+class Card{
+- int cardID
+- String cardDescription
+}
+
+class Game{
+- int turnCounter
+- Disease enemy
+- Team team
+- Enum difficulty
+}
+
+class GameController{}
+
+class Player{
+- String name
+- Role role
+- boolean isInfected
+}
+
+class Team{
+- String name
+- ArrayList<Players> players
+- int highScore
+
++ public Player getCurrentPlayer(int turnCount)
+}
+
+abstract class Role{
+- String name
++ public {abstract} void useRoleCard()
+}
+
+class Mayor extends Role{
+- String name
+- int publicApproval
++ public void useRoleCard()
+}
+
+class InvestigativeJournalist extends Role{
+- String name
+- int publicReach
++ public void useRoleCard()
+}
+
+class Physician extends Role{
+- String name
+- int patientTrust
++ public void useRoleCard()
+}
+
+class Researcher extends Role{
+- String name
+- int funding
++ public void useRoleCard()
+}
+
+class Disease{
+- Enum diseaseType
+- int mutationRate
+- int stability
+- ArrayList<transmissionRoute> transmissionRoutes
+- int transmissionRate
+- ArrayList<Symptom> symptoms
+- int incubationTime
+- int infectionTime
+- int prevalence
+- ArrayList<susceptibleGroup> susceptibleGroups
+- int fatalityRate
+- ArrayList<treatmentOption> treatmentOptions
+}
+
+enum diseaseType
+enum symptom
+enum transmissionRoute
+enum susceptibleGroup
+enum treatmentOption
+enum difficulty
+
+Overview --* Menu
+MainMenu --* Menu
+StartMenu --* Menu
+CardMenu --* Menu
+
+Menu --* GameController
+
+GameController *-- Game
+Game *-- Disease
+Game *-- Scenario
+Game *-- Team
+Scenario *-- Card
+Team *-- Player
+Player *-- Role
+
+Game *-- difficulty
+Disease *-- diseaseType
+Disease *-- symptom
+Disease *-- transmissionRoute
+Disease *-- treatmentOption
+Disease *-- susceptibleGroup
+
+
+@enduml
