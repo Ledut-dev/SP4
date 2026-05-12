@@ -19,7 +19,7 @@ public class Main extends PApplet {
 
     }
 
-    public void setUp(){
+    public void setup(){
         s.enter(this);
     }
 

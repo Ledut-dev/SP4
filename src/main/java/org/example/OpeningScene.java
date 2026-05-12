@@ -2,37 +2,60 @@ package org.example;
 
 import processing.core.PApplet;
 
+import java.awt.*;
+
+
 public class OpeningScene extends Scene {
 
-    float position1 = 0;
+    float xposition = 200;
+    float yposition= 150;
     float speed = 1;
+
+    int prussianBlue;
+    int apricotCream;
+    int limeCream;
+    int mediumSlateBlue;
+    int neonChartreuse;
+    int electricIndigo;
+    int champagneMist;
+
 
     @Override
     public void enter(PApplet p) {
-        p.background(0);
+        prussianBlue = p.color(18,40,73);
+        apricotCream = p.color(251,198,128);
+        limeCream = p.color (244,255,161);
+        mediumSlateBlue = p.color(143,115,255);
+        neonChartreuse = p.color (231,255,46);
+        electricIndigo = p.color(90,48,255);
+        champagneMist= p.color(255,233,204);
+
+        p.background(limeCream);
     }
 
     @Override
     public void render(PApplet p) {
 
-        p.fill(50,100,200,30);
+        p.fill(mediumSlateBlue);
         p.strokeWeight (4);
-        p.stroke(0);
-        p.circle (position1,200, 80);
-        position1= position1+speed;
+        p.stroke(neonChartreuse);
+        p.circle (xposition,yposition, 40);
+        xposition= xposition+speed;
 
-        if (position1 > 399){
+        if (xposition > 599){
             speed = -1;
         }
-        if (position1<1) {
+        if (xposition<1) {
             speed =1;
         }
 
 
-
-
-
-
-
     }
+
+
+
+
+
+
+
 }
