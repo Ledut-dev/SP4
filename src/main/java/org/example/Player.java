@@ -1,7 +1,5 @@
 package org.example;
 
-import javax.management.relation.Role;
-
 public class Player {
 
     private String name;
