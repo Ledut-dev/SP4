@@ -7,11 +7,12 @@ public class Main extends PApplet {
 
     //størrelsen på vinduet
     public void settings(){
-        size(600, 400);
+        size(1376,768);
     }
 
 
-    static Scene s = new OpeningScene();
+    static Scene sceneOne = new SceneOne();
+    static Scene sceneTwo = new SceneTwo();
 
     public static void main(String[] args){
 
@@ -20,11 +21,11 @@ public class Main extends PApplet {
     }
 
     public void setup(){
-        s.enter(this);
+        sceneOne.enter(this);
     }
 
     public void draw(){
-        s.render(this);
+        sceneOne.render(this);
     }
 
 

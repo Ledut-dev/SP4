@@ -1,12 +1,24 @@
 package org.example;
 
 import processing.core.PApplet;
+import processing.core.PGraphics;
 
-abstract public class Scene {
+import java.awt.*;
 
-    abstract public void enter(PApplet p);
+public class Scene {
 
-    abstract public void render(PApplet p);
+    ColorPalette color;
+
+
+   public void enter(PApplet p){
+       color = new ColorPalette(p);
+
+
+   }
+
+     public void render(PApplet p){
+
+     }
 
 
 
