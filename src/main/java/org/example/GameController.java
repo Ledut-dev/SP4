@@ -11,7 +11,7 @@ public class GameController {
     }
 
     //Having looked at the MVC model more, GameController in this instance is used for connection between the model
-    //our Game, Player, Team etc.
+    //our Game, Player, Team etc, and our view.
     //Reading up about DAO (Data Access Objects) and DTO (Data Transfer Objects, like the classes Player/Disease/Card),
     //we might want to look at having a DAO interface for handling CRUD operations on our database.
     //The principles of Data Encapsulation and OOP programming to an Interface
