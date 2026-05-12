@@ -16,7 +16,7 @@ public class Team {
     }
 
     //Setter, will be used by game to add players to team
-    public void addPlayerToTeam(Player player){
+    public void addPlayer(Player player){
         players.add(player);
     }
 
