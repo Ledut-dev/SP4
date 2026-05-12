@@ -26,7 +26,7 @@ public class Scenario {
 
     //Will this pick at random? Are the options potentially weighted?
     //Currently coded to return a single random card from scenarioCards
-    public Card findCardOptions(){
+    public Card getCardOption(){
         Card card = scenarioCards.get(random.nextInt(scenarioCards.size()+1));
         return card;
     }
