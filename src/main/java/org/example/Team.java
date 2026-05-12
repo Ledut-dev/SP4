@@ -21,6 +21,8 @@ public class Team {
     }
 
     //Returns the player who is taking their turn, based on turnCount and size of team.
+    //Instead of passing the turnCount int to this function, maybe need to do game.getTurnCount instead? Would need to look at the composition.
+    //Potentially have the turnCount be a static/global variable? Passing the turnCounter int might be the best option
     public Player getCurrentPlayer(int turnCount){
         //Turncount-1 to account for index starting at 0
         Player player = players.get((turnCount-1) % players.size());
