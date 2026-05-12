@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PlayerDAO implements DAO<Player>{
 
-    //Can have the implemented DAO store player objects, as a way of having an "in-memory" databasde
+    //Can have the implemented DAO store player objects, as a way of having an "in-memory" database
     private ArrayList<Player> players = new ArrayList<>();
 
     @Override
@@ -66,5 +66,13 @@ public class PlayerDAO implements DAO<Player>{
     @Override
     public int delete(Player player) {
         return 0;
+    }
+
+    //Can add extra specific methods, depending on the object we're creating/table we're fetching from.
+    public Player getPlayerByName(String name){
+
+        Player player = null;
+
+        return player;
     }
 }
