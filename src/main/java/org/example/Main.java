@@ -16,7 +16,12 @@ public class Main extends PApplet {
 
     public static void main(String[] args){
 
+        DBConnector db = new DBConnector();
+        db.connect("jdbc:sqlite:data/diseases.sqlite");
+        Disease disease = db.getRandomDisease();
+
         PApplet.main("org.example.Main");
+
 
     }
 
@@ -26,9 +31,6 @@ public class Main extends PApplet {
 
     public void draw(){
         sceneOne.render(this);
-        DBConnector db = new DBConnector();
-        db.connect("jdbc:sqlite:data/diseases.sqlite");
-        Disease disease = db.getRandomDisease();
     }
 
 }
