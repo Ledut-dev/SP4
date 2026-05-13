@@ -16,6 +16,7 @@ class Scenario{
 - int scenarioID
 - ArrayList<Card> scenarioCards
 - ArrayList<Card> pickedCards
+- Random random
 
 + Public Card findCardOptions()
 
