@@ -34,11 +34,11 @@ public class Ball {
 
 
 
-    public void render(PApplet p, ColorPalette c){
+    public void render(PApplet p, int fillColor, int strokeColor){
 
-        p.fill(c.neonChartreuse,fillAlpha);
+        p.fill(fillColor,fillAlpha);
         p.strokeWeight(strokeWeight);
-        p.stroke(c.electricIndigo, strokeAlpha);
+        p.stroke(strokeColor, strokeAlpha);
         p.circle((float)xPos, (float)yPos, extend);
 
     }

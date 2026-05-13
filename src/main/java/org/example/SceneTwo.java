@@ -24,90 +24,27 @@ public class SceneTwo extends Scene{
 
         counter = 0.0;
 
-        i = p.loadImage("doc/city_map_watercolor_v4.png");
+        i = p.loadImage("doc/sick_city_futuristic_v2.png");
         p.image(i, 0,0);
-
     }
 
     @Override
-    public void render(PApplet p) {
+    public int render(PApplet p) {
 
         Random r= new Random();
 
+        Ball b = new Ball(20, 80, 70, 600, 300, 100, color);
+        b.render(p, color.electricIndigo, color.champagneMist);
 
-        if(p.frameCount % 3 == 0 || p.frameCount % 2 == 0 ) {
+        counter+=0.5;
+        System.out.println(counter);
 
-            Ball b = new Ball
-                    (r.nextFloat(10),
-                     40,
-                     20,
-                      290,
-                      600,
-                      r.nextFloat(90+size),
-                      color);
+        if(counter > 70){
 
-            b.render(p, color);
+            p.noLoop();
+            return 2;
+        } return 1;
 
-        }
-
-
-        if (p.frameCount % 10==0) {
-
-            Ball c = new Ball
-                    (r.nextFloat(4),
-                    30,
-                    25,
-                    (1000+relationalPlacement),
-                    (200+relationalPlacement),
-                    r.nextFloat(55+size),
-                    color);
-
-            c.render(p, color);
-
-        }
-
-        if (p.frameCount % 20==0) {
-
-//            p.fill(color.neonChartreuse, 80);
-//            p.strokeWeight(r.nextFloat(6));
-//            p.stroke(color.electricIndigo, 30);
-//            p.circle((1000 - placement), (200 - placement), r.nextFloat(75+size));
-
-            Ball d = new Ball
-                    (r.nextFloat(6),
-                    30,
-                    80,
-                    (1000-relationalPlacement),
-                    (200-relationalPlacement),
-                    r.nextFloat(75+size),
-                    color);
-            d.render(p, color);
-
-        }
-
-        if (p.frameCount % 5==0){
-
-            Ball e = new Ball
-                    (r.nextFloat(2),
-                            30,
-                            90,
-                            (1000-relationalPlacement),
-                            (200+relationalPlacement),
-                            r.nextFloat(50+size),
-                            color);
-            e.render(p, color);
-
-        }
-        // for hver 1 i counter er der gået 1/10 sekund, et sekund er derfor = 6
-        counter += 0.1;
-       // System.out.println(counter);
-
-//        if (counter > 30){ får den til at udvide sig i al uendelighed, så cool til afslutningsscene
-//            size+=30;
-        if (counter >30){
-            size=30;
-            relationalPlacement=40;
-        }
 
     }
 

@@ -16,8 +16,8 @@ public class Scene {
 
    }
 
-     public void render(PApplet p){
-
+     public int render(PApplet p){
+        return 0;
      }
 
 

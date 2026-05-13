@@ -1,0 +1,58 @@
+package org.example;
+
+import processing.core.PApplet;
+import processing.core.PImage;
+
+import java.util.Random;
+
+public class SceneThree extends Scene{
+
+
+        PImage i;
+        float size=0;
+        float relationalPlacement=25;
+        double counter;
+        String name = "test";
+
+
+        @Override
+        public void enter(PApplet p) {
+            super.enter(p);
+
+            counter = 0.0;
+
+            i = p.loadImage("doc/sick_city_futuristic_v2.png");
+            p.image(i, 0,0);
+        }
+
+        @Override
+        public int render(PApplet p) {
+
+            Random r= new Random();
+
+            Ball b = new Ball(20, 80, 70, 600, 300, 100, color);
+            b.render(p, color.apricotCream, color.champagneMist);
+
+            counter+=0.5;
+            System.out.println(counter);
+
+            if(counter > 70){
+                p.noLoop();
+                return 3;
+            } return 2;
+
+        }
+
+public String getName(){
+            return name;
+}
+
+    }
+
+
+
+
+
+
+
+
