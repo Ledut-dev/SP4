@@ -26,10 +26,9 @@ public class Main extends PApplet {
 
     public void draw(){
         sceneOne.render(this);
+        DBConnector db = new DBConnector();
+        db.connect("jdbc:sqlite:data/diseases.sqlite");
+        Disease disease = db.getRandomDisease();
     }
-
-
-
-
 
 }
