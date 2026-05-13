@@ -6,7 +6,6 @@ public class Team {
 
     private String name;
     private ArrayList<Player> players;
-
     //Highscore potentially needs to be set in constructor, in the scenario we're loading an unfinished game.
     private int highscore = 0;
 

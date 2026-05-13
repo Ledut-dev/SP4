@@ -12,6 +12,16 @@ class Main extends PApplet{
 + void Draw()
 }
 
+class DBConnector{
+}
+
+class DiseaseDao{}
+class RoleDao{
+- ArrayList<Role> roles
+}
+class ScenarioDao{}
+class CardDao{}
+
 class Scene{}
 
 class Overview{}
@@ -30,13 +40,17 @@ class Scenario{
 - ArrayList<Card> pickedCards
 - Random random
 
-+ Public Card findCardOptions()
++ Public Card findCardOption()
++ void addPickedCard()
++ void addScenarioCard()
 
 }
 
 class Card{
 - int cardID
+- int affectedAmount
 - String cardDescription
+- String affectedValue
 }
 
 class Game{
@@ -44,14 +58,21 @@ class Game{
 - Disease enemy
 - Team team
 - Difficulty difficulty
+
 }
 
-class GameController{}
+class GameController{
+
+}
+
+class GameService{
++ void gameLoop()
++ void setupNewGame(String teamName)
+}
 
 class Player{
 - String name
 - Role role
-- boolean isInfected
 }
 
 class Team{
@@ -60,6 +81,7 @@ class Team{
 - int highScore
 
 + public Player getCurrentPlayer(int turnCount)
++ public void addPlayer(Player)
 }
 
 abstract class Role{
@@ -113,8 +135,6 @@ enum susceptibleGroup
 enum treatmentOption
 enum difficulty
 
-Main *-- GameController
-
 Overview --* Menu
 MainMenu --* Menu
 StartMenu --* Menu
@@ -122,7 +142,8 @@ CardMenu --* Menu
 
 Menu --* GameController
 
-GameController *-- Game
+GameController *-- GameService
+GameService *-- Game
 Game *-- Disease
 Game *-- Scenario
 Game *-- Team
