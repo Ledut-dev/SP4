@@ -32,7 +32,7 @@ public class SceneThree extends Scene {
     public int render(PApplet p) {
 
         Random r= new Random();
-        counter+=0.5;
+        counter+=0.2;
 
         Ball b = new Ball
                 (r.nextFloat(10),
@@ -71,15 +71,12 @@ public class SceneThree extends Scene {
                 p.rect(0,0, p.width, p.height);
 
                 p.rect(((float)p.width/2)-200,((float)p.height/2)+100, ((float)p.width/2)+200, ((float)p.height/2)+200);
-                p.textSize(16);
+                p.textSize(30);
                 p.fill(color.champagneMist);
-                p.fill(color.neonChartreuse, 10);
+                p.fill(color.neonChartreuse);
                 p.text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
                                 "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ",
-                        ((float)p.width/2)-200,((float)p.height/2)+100, ((float)p.width/2)+200, ((float)p.height/2)+200);
-
-
-
+                        ((float)p.width/2)-500,200, 1000, 600);
 
 
             }

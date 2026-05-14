@@ -33,19 +33,16 @@ public class ScreenOne extends Scene{
         p.image(i, 0,0);
 
         a = p.loadImage("doc/sick_city_card_template.png");
-
+        //gennemsigtig baggrund
+        p.fill(color.prussianBlue, 200);
+        p.noStroke();
+        p.rect(0,0, p.width, p.height);
 
     }
 
 
     @Override
     public int render(PApplet p) {
-
-        //gennemsigtig baggrund
-        p.fill(color.prussianBlue, 200);
-        p.noStroke();
-        p.rect(0,0, p.width, p.height);
-
 
         p.textSize(40);
         p.fill(color.apricotCream);

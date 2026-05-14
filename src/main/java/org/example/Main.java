@@ -53,7 +53,7 @@ public class Main extends PApplet {
       // currentView = allViews.get(i);
 
         //currentView.enter(this);
-        allViews.get(2).enter(this);
+        allViews.get(3).enter(this);
 
     }
 
@@ -61,7 +61,7 @@ public class Main extends PApplet {
 
 
 
-        allViews.get(2).render(this);
+        allViews.get(3).render(this);
 
 
 

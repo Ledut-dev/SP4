@@ -34,25 +34,26 @@ public class SceneTwo extends Scene{
     public int render(PApplet p) {
 
         Random r= new Random();
-        counter+=0.5;
+        counter+=0.2;
+
+    if(p.frameCount % 6 == 0 || p.frameCount % 8 == 0 ) {
         Ball b = new Ball
                 (r.nextFloat(10),
                         40,
                         20,
                         200,
                         400,
-                        r.nextFloat(90+size),
+                        r.nextFloat(90 + size),
                         color);
 
         b.render(p, color.neonChartreuse, color.electricIndigo);
 
 
-
-        if(counter == 30){
-            size +=60;
+        if (counter == 30) {
+            size += 60;
         }
 
-        if (counter > 32){
+        if (counter > 32) {
             Ball c = new Ball
                     (r.nextFloat(10),
                             40,
@@ -64,7 +65,7 @@ public class SceneTwo extends Scene{
 
             c.render(p, color.neonChartreuse, color.electricIndigo);
         }
-        if (counter > 37){
+        if (counter > 37) {
             Ball d = new Ball
                     (r.nextFloat(10),
                             40,
@@ -76,6 +77,7 @@ public class SceneTwo extends Scene{
 
             d.render(p, color.neonChartreuse, color.electricIndigo);
         }
+    }
 
     return 0;
     }
