@@ -26,6 +26,9 @@ public class SceneTwo extends Scene{
 
         i = p.loadImage("doc/sick_city_futuristic_v2.png");
         p.image(i, 0,0);
+
+        System.out.println("scene 2");
+
     }
 
     @Override
@@ -41,9 +44,8 @@ public class SceneTwo extends Scene{
 
         if(counter > 70){
 
-            p.noLoop();
             return 2;
-        } return 1;
+        } return 0;
 
 
     }
