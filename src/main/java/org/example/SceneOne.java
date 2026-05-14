@@ -22,17 +22,17 @@ public class SceneOne extends Scene {
 
         counter = 0.0;
 
-        i = p.loadImage("doc/city_map_watercolor_v4.png");
+        i = p.loadImage("doc/sick_city_futuristic_v2.png");
         p.image(i, 0,0);
 
     }
 
     @Override
-    public void render(PApplet p) {
+    public int render(PApplet p) {
 
         Random r= new Random();
 
-        if(p.frameCount % 3 == 0 || p.frameCount % 2 == 0 ) {
+        if((p.frameCount % 3 == 0 || p.frameCount % 2 == 0 )&& counter<30) {
 //            p.fill(color.neonChartreuse, 20);
 //            p.strokeWeight(r.nextFloat(10));
 //            p.stroke(color.electricIndigo, 40);
@@ -47,7 +47,7 @@ public class SceneOne extends Scene {
                             r.nextFloat(60+size),
                             color);
 
-            b.render(p, color);
+            b.render(p, color.neonChartreuse, color.electricIndigo);
 
 
         }
@@ -63,7 +63,7 @@ public class SceneOne extends Scene {
                             r.nextFloat(25+size),
                             color);
 
-            c.render(p, color);
+            c.render(p, color.neonChartreuse, color.electricIndigo);
 
 
 
@@ -84,7 +84,7 @@ public class SceneOne extends Scene {
                             (200-relationalPlacement),
                             r.nextFloat(45+size),
                             color);
-            d.render(p, color);
+            d.render(p, color.neonChartreuse, color.electricIndigo);
 
         }
 
@@ -97,12 +97,15 @@ public class SceneOne extends Scene {
                             (200+relationalPlacement),
                             r.nextFloat(20+size),
                             color);
-            e.render(p, color);
+            e.render(p, color.neonChartreuse, color.electricIndigo);
         }
 
-        // for hver 1 i counter er der gået 1/10 sekund, et sekund er derfor = 6
-        counter += 0.2;
+        //FØRSTE SCENE SLUT, TEKSTBOKS STARTER, OG
+
         System.out.println(counter);
+            if(counter >30 && counter<30.2){
+                p.image(i, 0,0);
+            }
 
 //        if (counter > 30){ får den til at udvide sig i al uendelighed, så cool til afslutningsscene
 //            size+=30;
@@ -112,28 +115,100 @@ public class SceneOne extends Scene {
         }
 
         if (counter >= 32) {
-         p.fill(255, 10);
+         p.fill(color.prussianBlue, 10);
          p.noStroke();
-         p.rect(100,100, 500, 500);
-         p.fill(0);
-         p.textSize(12);
-         p.stroke(0);
-         p.textureWrap(10);
+         p.rect(25,25, 200, 200);
+         p.textSize(16);
+         p.fill(color.neonChartreuse, 10);
          p.text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
-                 "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
-                 "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut " +
-                 "aliquip ex ea commodo consequat. Duis aute irure dolor in " +
-                 "reprehenderit in voluptate velit esse cillum dolore eu fugiat" +
-                 " nulla pariatur. Excepteur sint occaecat cupidatat non proident," +
-                 " sunt in culpa qui officia deserunt mollit anim id est laborum.", 150, 150);
+                 "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ",
+                 40, 40, 125,125);
         }
 
-//        if (counter > 35){
-//            p.noLoop();
-//
-//        }
+        if (counter > 33){
+
+            if(p.frameCount % 3 == 0 || p.frameCount % 2 == 0 ) {
+
+                Ball b = new Ball
+                        (r.nextFloat(10),
+                                40,
+                                20,
+                                290,
+                                600,
+                                r.nextFloat(90+size),
+                                color);
+
+                b.render(p, color.neonChartreuse, color.electricIndigo);
+
+            }
 
 
+            if (p.frameCount % 10==0) {
+
+                Ball c = new Ball
+                        (r.nextFloat(4),
+                                30,
+                                25,
+                                (1000+relationalPlacement),
+                                (200+relationalPlacement),
+                                r.nextFloat(55+size),
+                                color);
+
+                c.render(p, color.neonChartreuse, color.electricIndigo);
+
+            }
+
+            if (p.frameCount % 20==0) {
+
+//            p.fill(color.neonChartreuse, 80);
+//            p.strokeWeight(r.nextFloat(6));
+//            p.stroke(color.electricIndigo, 30);
+//            p.circle((1000 - placement), (200 - placement), r.nextFloat(75+size));
+
+                Ball d = new Ball
+                        (r.nextFloat(6),
+                                30,
+                                80,
+                                (1000-relationalPlacement),
+                                (200-relationalPlacement),
+                                r.nextFloat(75+size),
+                                color);
+                d.render(p, color.neonChartreuse, color.electricIndigo);
+
+            }
+
+            if (p.frameCount % 5==0){
+
+                Ball e = new Ball
+                        (r.nextFloat(2),
+                                30,
+                                90,
+                                (1000-relationalPlacement),
+                                (200+relationalPlacement),
+                                r.nextFloat(50+size),
+                                color);
+                e.render(p, color.neonChartreuse, color.electricIndigo);
+
+            }
+
+
+//        if (counter > 30){ får den til at udvide sig i al uendelighed, så cool til afslutningsscene
+//            size+=30;
+            if (counter >40){
+                size=30;
+                relationalPlacement=40;
+            }
+
+        }
+
+        if (counter >= 100){
+            //returner en ind der kan bruges som index?
+            return 1;
+        }
+        // for hver 1 i counter er der gået 1/10 sekund, et sekund er derfor = 6
+        counter += 1;
+
+        return 0;
         }
 
 

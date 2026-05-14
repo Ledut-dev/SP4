@@ -2,33 +2,81 @@ package org.example;
 
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+
 
 public class Main extends PApplet {
 
-    //størrelsen på vinduet
+
+    Scene currentView;
+    int i=0;
+    ArrayList<Scene> allViews;
+
+
     public void settings(){
+        //størrelsen på vinduet
         size(1376,768);
     }
 
-
-    static Scene sceneOne = new SceneOne();
-    static Scene sceneTwo = new SceneTwo();
 
     public static void main(String[] args){
 
         PApplet.main("org.example.Main");
 
+
+
+
     }
 
     public void setup(){
-        sceneOne.enter(this);
+        allViews = new ArrayList<>();
+
+        //SCENER ER GRAFIK MED BEVÆGELSE OG SCENARIER
+
+        allViews.add(new SceneOne());
+        allViews.add(new SceneTwo());
+        allViews.add(new SceneTest());
+
+
+        //SCREENS ER MED KNAPPER
+
+        allViews.add(new ScreenOne());
+
+
+        //allViews.add(new ScreenTwo());
+
+       // Scene screenOne  = new ScreenOne(); // START SCREEN
+        //static Screen  screenTwo  = new ScreenTwo();
+        //static Screen screenThree = new ScreenThree(); //OPTIONS SCREEN
+
+       currentView = allViews.get(i);
+
+        currentView.enter(this);
+
+
     }
 
     public void draw(){
-        sceneOne.render(this);
-        DBConnector db = new DBConnector();
-        db.connect("jdbc:sqlite:data/diseases.sqlite");
-        Disease disease = db.getRandomDisease();
+
+
+        i = currentView.render(this); //starter startmenu
+
+
+        if(i>0){
+            currentView=allViews.get(i);
+            if(i == allViews.indexOf(currentView)){
+            currentView.enter(this);}
+
+
+        }
+
+
+
+
     }
+
+
+
+
 
 }
