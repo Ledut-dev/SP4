@@ -5,7 +5,7 @@ import java.util.List;
 
 //Example of a generic DAO interface, with the normal CRUD commands like save, insert, update and delete.
 //Have made a specific PlayerDAO to show implementation
-public interface DAO<T> {
+public interface Dao<T> {
 
     T get(int ID) throws SQLException;
 

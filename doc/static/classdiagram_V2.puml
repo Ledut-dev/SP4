@@ -65,10 +65,6 @@ class GameController{
 
 }
 
-class ViewController{
-
-}
-
 class GameService{
 - ScenarioDao scenarioDao
 - CardDao cardDao
@@ -141,15 +137,13 @@ enum symptom
 enum transmissionRoute
 enum susceptibleGroup
 enum treatmentOption
-enum difficulty
 
 Overview --* Menu
 MainMenu --* Menu
 StartMenu --* Menu
 CardMenu --* Menu
 
-Menu --* ViewController
-ViewController *--* GameController
+Menu *--* GameController
 
 GameController *-- GameService
 GameService *-- Game
@@ -160,7 +154,6 @@ Scenario *-- Card
 Team *-- Player
 Player *-- Role
 
-Game *-- difficulty
 Disease *-- diseaseType
 Disease *-- symptom
 Disease *-- transmissionRoute

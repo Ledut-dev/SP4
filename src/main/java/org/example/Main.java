@@ -20,6 +20,8 @@ public class Main extends PApplet {
         db.connect("jdbc:sqlite:data/diseases.sqlite");
         Disease disease = db.getRandomDisease();
 
+
+
         PApplet.main("org.example.Main");
 
 

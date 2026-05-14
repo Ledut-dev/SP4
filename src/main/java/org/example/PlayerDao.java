@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerDAO implements DAO<Player>{
+public class PlayerDao implements Dao<Player> {
 
     //Can have the implemented DAO store player objects, as a way of having an "in-memory" database
     private ArrayList<Player> players = new ArrayList<>();
