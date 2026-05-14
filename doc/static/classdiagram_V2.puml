@@ -143,7 +143,7 @@ MainMenu --* Menu
 StartMenu --* Menu
 CardMenu --* Menu
 
-Menu *--* GameController
+Menu *-- GameController
 
 GameController *-- GameService
 GameService *-- Game

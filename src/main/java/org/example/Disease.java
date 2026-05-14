@@ -63,4 +63,10 @@ public class Disease {
     public String toString() {
         return "Disease: " + this.diseaseName;
     } // Brugt til test
+
+    public void changeTransmissionRate(int amount){
+        this.transmissionRate += amount;
+    }
+
+
 }

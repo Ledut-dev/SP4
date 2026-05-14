@@ -6,17 +6,21 @@ public class Team {
 
     private String name;
     private ArrayList<Player> players;
-    //Highscore potentially needs to be set in constructor, in the scenario we're loading an unfinished game.
-    private int highscore = 0;
+    private int highscore;
 
     public Team(String name){
         this.name = name;
         this.players = new ArrayList<>();
+        //If loading a game, needs to be updated to take a highscore value from the database.
+        this.highscore = 0;
     }
 
-    //Setter, will be used by game to add players to team
-    public void addPlayer(Player player){
-        players.add(player);
+    public void addPlayer(String playerName, Role role) {
+        players.add(createPlayer(playerName, role));
+    }
+
+    private Player createPlayer(String playerName, Role role){
+        return new Player(playerName, role);
     }
 
     //Returns the player who is taking their turn, based on turnCount and size of team.
@@ -24,8 +28,7 @@ public class Team {
     //Potentially have the turnCount be a static/global variable? Passing the turnCounter int might be the best option
     public Player getCurrentPlayer(int turnCount){
         //Turncount-1 to account for index starting at 0
-        Player player = players.get((turnCount-1) % players.size());
-        return player;
+        return players.get((turnCount-1) % players.size());
     }
 
 }

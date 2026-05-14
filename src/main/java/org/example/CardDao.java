@@ -1,9 +1,11 @@
 package org.example;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CardDao implements Dao<Card>{
+
     @Override
     public Card get(int ID) throws SQLException {
         return null;
@@ -32,5 +34,9 @@ public class CardDao implements Dao<Card>{
     @Override
     public int delete(Card card) {
         return 0;
+    }
+
+    public List<Card> getAllByScenarioID(int ID) throws SQLException{
+
     }
 }

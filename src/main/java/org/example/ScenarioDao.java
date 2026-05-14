@@ -33,4 +33,8 @@ public class ScenarioDao implements Dao<Scenario>{
     public int delete(Scenario scenario) {
         return 0;
     }
+
+    public Scenario getScenarioByID(int scenarioID) {
+
+    }
 }

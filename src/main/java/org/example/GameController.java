@@ -1,13 +1,36 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class GameController {
 
-    private Game game;
-    private Menu menu;
+    private GameService gameService;
 
-    public GameController(Game game, Menu menu){
-        this.game = game;
-        this.menu = menu;
+    public GameController(){
+        this.gameService = new GameService();
+    }
+
+    public void createPlayer(){
+        gameService.getGame().getTeam().addPlayer("test");
+    }
+
+    public ArrayList<String> endRound(){
+        ArrayList<String> changedAttributesValues = gameService.calculateRoundEffects();
+        gameService.getGame().incrementTurnCount();
+
+        return changedAttributesValues;
+    }
+
+    public void cardPicked(int cardChoice){
+        gameService.getGame().getCurrentScenario().addPickedCard(cardChoice);
+    }
+
+    public ArrayList<Card> getCardOptions(){
+        return gameService.getGame().getCurrentScenario().getCurrentOptions();
+    }
+
+    public String getCurrentPlayerName(){
+        return gameService.getGame().getTeam().getCurrentPlayer(gameService.getGame().getTurnCount()).getName();
     }
 
     //Having looked at the MVC model more, GameController in this instance is used for connection between the model

@@ -9,6 +9,10 @@ public class RoleDao implements Dao<Role>{
         return null;
     }
 
+    public Role getRandom() throws SQLException{
+
+    }
+
     @Override
     public List<Role> getAll() throws SQLException {
         return List.of();
