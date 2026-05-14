@@ -65,7 +65,15 @@ class GameController{
 
 }
 
+class ViewController{
+
+}
+
 class GameService{
+- ScenarioDao scenarioDao
+- CardDao cardDao
+- DiseaseDao diseaseDao
+- RoleDao roleDao
 + void gameLoop()
 + void setupNewGame(String teamName)
 }
@@ -140,7 +148,8 @@ MainMenu --* Menu
 StartMenu --* Menu
 CardMenu --* Menu
 
-Menu --* GameController
+Menu --* ViewController
+ViewController *--* GameController
 
 GameController *-- GameService
 GameService *-- Game

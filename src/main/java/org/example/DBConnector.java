@@ -6,6 +6,7 @@ import java.util.Random;
 public class DBConnector {
     Connection conn;
 
+    //Might need this to be static methods, depending on if each Dao is doing the connection, or if we're using the DBconnector
     public void connect(String url) {
         try {
             conn = DriverManager.getConnection(url);

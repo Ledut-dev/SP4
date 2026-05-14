@@ -12,7 +12,7 @@ public class PlayerDAO implements DAO<Player>{
     @Override
     public Player get(int ID) throws SQLException {
 
-        Connection con = DBConnector.getConnection();
+        Connection con = DBConnector.connect("jdbc:sqlite:data/diseases.sqlite");
 
         Player player = null;
 
