@@ -12,7 +12,7 @@ public class Scene {
 
    public void enter(PApplet p){
        color = new ColorPalette(p);
-       p.loop();
+       //p.loop();
 
 
    }

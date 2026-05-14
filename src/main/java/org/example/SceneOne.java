@@ -33,11 +33,6 @@ public class SceneOne extends Scene {
         Random r= new Random();
 
         if((p.frameCount % 3 == 0 || p.frameCount % 2 == 0 )&& counter<30) {
-//            p.fill(color.neonChartreuse, 20);
-//            p.strokeWeight(r.nextFloat(10));
-//            p.stroke(color.electricIndigo, 40);
-//            p.circle(xposition, yposition, r.nextFloat(60)+size);
-//
             Ball b = new Ball
                     (r.nextFloat(10),
                             40,

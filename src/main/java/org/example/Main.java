@@ -13,6 +13,7 @@ public class Main extends PApplet {
     ArrayList<Scene> allViews;
 
 
+
     public void settings(){
         //størrelsen på vinduet
         size(1376,768);
@@ -23,7 +24,7 @@ public class Main extends PApplet {
 
         PApplet.main("org.example.Main");
 
-
+        //String currentPlayer = gameController.getPlayerName;
 
 
     }
@@ -35,7 +36,7 @@ public class Main extends PApplet {
 
         allViews.add(new SceneOne());
         allViews.add(new SceneTwo());
-        allViews.add(new SceneTest());
+        allViews.add(new SceneThree());
 
 
         //SCREENS ER MED KNAPPER
@@ -49,23 +50,22 @@ public class Main extends PApplet {
         //static Screen  screenTwo  = new ScreenTwo();
         //static Screen screenThree = new ScreenThree(); //OPTIONS SCREEN
 
-       currentView = allViews.get(i);
+      // currentView = allViews.get(i);
 
-        currentView.enter(this);
-
+        //currentView.enter(this);
+        allViews.get(2).enter(this);
 
     }
 
     public void draw(){
 
 
-        i = currentView.render(this); //starter startmenu
+
+        allViews.get(2).render(this);
 
 
-        if(i>0){
-            currentView=allViews.get(i);
-            if(i == allViews.indexOf(currentView)){
-            currentView.enter(this);}
+
+
 
 
         }
@@ -73,7 +73,7 @@ public class Main extends PApplet {
 
 
 
-    }
+
 
 
 
