@@ -83,13 +83,13 @@ public class ScreenOne extends Scene{
     public int mousePressed(PApplet p) {
 
         if (isClicked(p, (float)p.width/4 - 150, 160, 300, 450)){
-            return 1;
+            return 0;
         }
         else if(isClicked(p, (float)p.width/2 - 150, 160, 300, 450)) {
-           return 2;
+           return 1;
         }
         else if(isClicked(p, (float)p.width/4+(float)p.width/2 - 150, 160, 300, 450)){
-            return 3;
+            return 2;
         }return 0;
     }
 

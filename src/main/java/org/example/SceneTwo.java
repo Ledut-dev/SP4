@@ -1,15 +1,13 @@
 package org.example;
 
 import processing.core.PApplet;
-import processing.core.PGraphics;
 import processing.core.PImage;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class SceneTwo extends Scene{
 
-    PImage i;
+    PImage b;
     float size=0;
     float relationalPlacement=25;
     double counter;
@@ -24,14 +22,18 @@ public class SceneTwo extends Scene{
 
         counter = 0.0;
 
-        i = p.loadImage("doc/sick_city_harbour_closeup.png");
-        p.image(i, 0,0);
+        b = p.loadImage("doc/sick_city_harbour_closeup.png");
+        p.noTint();
+        p.image(b, 0,0);
 
+        System.out.println("scene two enter");
 
     }
 
     @Override
     public int render(PApplet p) {
+        System.out.println(counter);
+        System.out.println("scene two render");
 
         Random r= new Random();
         counter+=0.2;
@@ -77,6 +79,9 @@ public class SceneTwo extends Scene{
 
             d.render(p, color.neonChartreuse, color.electricIndigo);
         }
+    }
+    if(counter>40){
+        return 2;
     }
 
     return 0;

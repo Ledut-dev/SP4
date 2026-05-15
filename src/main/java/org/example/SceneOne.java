@@ -10,6 +10,7 @@ import java.util.Random;
 public class SceneOne extends Scene {
 
     PImage i;
+    PImage a;
     float size=0;
     float relationalPlacement=25;
     double counter;
@@ -23,18 +24,26 @@ public class SceneOne extends Scene {
         counter = 0.0;
 
         i = p.loadImage("doc/sick_city_futuristic_v2.png");
+        a= p.loadImage("doc/sick_city_textbox_only.png");
+
+        p.noTint();
         p.image(i, 0,0);
+
+        System.out.println("scene one enter");
 
     }
 
     @Override
     public int render(PApplet p) {
 
+        System.out.println(counter);
+        System.out.println("scene 1 render");
+
         Random r= new Random();
         // for hver 1 i counter er der gået 1/10 sekund, et sekund er derfor = 6
         counter += 0.2;
 
-        if(p.frameCount % 6 == 0 || p.frameCount % 8 == 0 ) {
+        if(p.frameCount % 4 == 0 || p.frameCount % 6 == 0 ) {
             if (counter < 30) {
                 Ball b = new Ball
                         (r.nextFloat(10),
@@ -102,35 +111,33 @@ public class SceneOne extends Scene {
 //            size+=30;
             if (counter > 30) {
                 size = 30;
-                relationalPlacement = 40;
+                relationalPlacement = 50;
             }
 
-            if (counter >= 32) {
-                p.fill(color.electricIndigo, 10);
+            if(counter >= 35){
+                p.fill(color.prussianBlue, 10);
                 p.noStroke();
-                p.rect(40, 40, 500, 300);
-                p.textSize(20);
-                p.fill(color.neonChartreuse);
-                p.text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
-                                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ",
-                        40, 40, 125, 125);
+                p.rect(0,0, p.width, p.height);
             }
+
+            if (counter >= 40) { //P.IMAGEMODE(CENTER) VIRKER IKKE?
+                p.tint(255, 20);
+                p.image(a,(float)p.width/2-250, (float)p.height/2-375, 500, 750);
         }
 
-            if ( counter > 33) {
+        if(counter >= 45){
+            p.textSize(30);
+            p.fill(color.neonChartreuse, 30);
+            p.text("Velkommen til SickCity - Patient 0 der ellers bor i udkanten af byen er taget ind for at undervise på University of Tech." +
+                            "Det er jeres opgave at finde frem til hvilken sygdom der er i udbrud så en vaccinationsplan kan gå igang",
+                    (float)p.width/2-180, (float)p.height/2-180, 360, 360);
+        }
 
-                if (p.frameCount % 6 == 0 || p.frameCount % 8 == 0) {
+        }
 
-                    Ball b = new Ball
-                            (r.nextFloat(15),
-                                    40,
-                                    20,
-                                    290,
-                                    600,
-                                    r.nextFloat(90 + size),
-                                    color);
+            if ( counter > 30) {
 
-                    b.render(p, color.neonChartreuse, color.electricIndigo);
+                if (p.frameCount % 4 == 0 || p.frameCount % 6 == 0) {
 
                     Ball c = new Ball
                             (r.nextFloat(6),
@@ -162,22 +169,32 @@ public class SceneOne extends Scene {
                                     r.nextFloat(50 + size),
                                     color);
                     e.render(p, color.neonChartreuse, color.electricIndigo);
+
+                    Ball b = new Ball
+                            (r.nextFloat(15),
+                                    40,
+                                    20,
+                                    290,
+                                    600,
+                                    r.nextFloat(90 + size),
+                                    color);
+
+                    b.render(p, color.neonChartreuse, color.electricIndigo);
                 }
 
 
 //        if (counter > 30){ får den til at udvide sig i al uendelighed, så cool til afslutningsscene
 //            size+=30;
-                if (counter > 40) {
+                if (counter > 60) {
                     size = 50;
                     relationalPlacement = 50;
                 }
             }
 
-            if (counter >= 100) {
+            if (counter >= 70) {
                 //returner en ind der kan bruges som index?
                 return 1;
             }
-
 
 
         return 0;

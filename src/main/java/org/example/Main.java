@@ -15,18 +15,13 @@ public class Main extends PApplet {
 
 
     public void settings(){
-        //størrelsen på vinduet
         size(1376,768);
     }
 
 
     public static void main(String[] args){
 
-        PApplet.main("org.example.Main");
-
-        //String currentPlayer = gameController.getPlayerName;
-
-
+        //PApplet.main("org.example.Main");
     }
 
     public void setup(){
@@ -37,23 +32,15 @@ public class Main extends PApplet {
         allViews.add(new SceneOne());
         allViews.add(new SceneTwo());
         allViews.add(new SceneThree());
-
+        allViews.add(new SceneGameOver());
 
         //SCREENS ER MED KNAPPER
 
         allViews.add(new ScreenOne());
 
 
-        //allViews.add(new ScreenTwo());
 
-       // Scene screenOne  = new ScreenOne(); // START SCREEN
-        //static Screen  screenTwo  = new ScreenTwo();
-        //static Screen screenThree = new ScreenThree(); //OPTIONS SCREEN
-
-      // currentView = allViews.get(i);
-
-        //currentView.enter(this);
-        allViews.get(3).enter(this);
+        allViews.get(2).enter(this);
 
     }
 
@@ -61,14 +48,14 @@ public class Main extends PApplet {
 
 
 
-        allViews.get(3).render(this);
+        allViews.get(2).render(this);
 
 
 
 
 
 
-        }
+    }
 
 
 
@@ -80,3 +67,4 @@ public class Main extends PApplet {
 
 
 }
+
